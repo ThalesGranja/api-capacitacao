@@ -22,7 +22,8 @@ app.get('/', (req: Request, res: Response) => {
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 
-mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicapacitacao.atwawcc.mongodb.net/?appName=APICapacitacao`)
+mongoose
+  .connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicapacitacao.atwawcc.mongodb.net/?appName=APICapacitacao`)
   .then(() => {
     // entregar uma porta
     console.log('Conectamos ao MongoDB!')
