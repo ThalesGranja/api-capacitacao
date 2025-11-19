@@ -2,12 +2,16 @@
 import 'dotenv/config';
 import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
+import alunoRoutes from "./routes/alunos.routes";
 
 const app = express();
 
 // forma de ler JSON / middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Rotas
+app.use("/alunos", alunoRoutes);
 
 // rota inicial
 app.get('/', (req: Request, res: Response) => {
