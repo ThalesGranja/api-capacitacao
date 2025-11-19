@@ -48,5 +48,28 @@ export const AlunoController = {
     } catch (error) {
       return res.status(500).json({ error });
     }
+  },
+
+  // atualizar
+  update: async (req: Request<{ id: string }>, res: Response) => {
+    try {
+      const { id } = req.params;
+      const { name, age, ra, cpf } = req.body;
+
+      const updatedAt = dayjs().toDate();
+
+      const aluno = await AlunoModel.findByIdAndUpdate(
+        id,
+        { name, age, ra, cpf, updatedAt },
+        { new: true }
+      );
+
+      if (!aluno) return res.status(404).json({ message: "Aluno não encontrado" });
+
+      return res.status(200).json(aluno);
+    } catch (error) {
+      return res.status(500).json({ error });
+    }
   }
+
 };
