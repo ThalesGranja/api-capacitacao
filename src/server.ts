@@ -32,4 +32,4 @@ mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicapacitacao.atwawcc
       console.log(`Servidor rodando em http://localhost:${PORT}`);
     });
   })
-  .catch((err) => console.log(err))
+  .catch((err) => console.log("Erro ao conectar ao MongoDB:", err))
